@@ -1,0 +1,47 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<h1> Books list </h1> <a href = "{% url 'books:Add_book'%}" type="button" class="btn btn-primary"> Add Book </a>  
+<table id = "mytable" class = "datatable" > 
+  
+
+<thead>
+<tr>
+    <th> Serial number </th> 
+    <th> Book Number </th>
+    <th> Book Name </th>
+    <th> Author Name </th>
+    <th> Action </th>
+  </tr>
+</thead>
+<tbody>
+    {% for Book in booklist %}
+    <tr>
+      <td>{{forloop.counter}} </td>
+      <td> {{Book.book_no}} </td>
+      <td> {{Book.name}} </td>
+      <td> {{Book.Author_name}} </td>
+      <td> <a  href = "{% url 'books:update_book' id=Book.id %}" type="button" class="btn btn-primary">Update </a>   
+        <a  href = "{% url 'books:delete_book' id=Book.id %}" type="button" class="btn btn-primary"> Delete </a> </td> 
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table> 
+
+
+
+ {% endblock %}
+
+ {% block javaScript %}
+ 
+ 
+ {% endblock %}
+
+{% comment %} 
+ href = "{% url 'books:update_book' id=Book.id %}"
+ href = "{% url 'books:delete_student' id=Book.id %}" {% endcomment %}

@@ -1,0 +1,35 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<h1> Add Books details </h1>
+
+<form name = "form" action = "{% url "books:Add_book" %}" 
+         method = "POST" >{% csrf_token %}
+
+    <div class="form-group">
+        <label for="exampleInputPassword1"> Book Number </label>
+        <input type="number" name= "book_no" class="form-control" id="exampleInputPassword1" placeholder="Enter Book Number">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Book name</label>
+      <input type="name" name= "name" class="form-control" id="exampleInputEmail1" placeholder="Enter Book name">
+      </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1"> Author Name </label>
+      <input type="name" name= "Author_name" class="form-control" id="exampleInputPassword1" placeholder="Enter Author name">
+    </div>
+
+    
+     <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+ {% endblock %}
+
+ {% block javaScript %}
+ 
+ 
+ {% endblock %}

@@ -1,0 +1,52 @@
+from django.contrib import admin
+from students.models import *
+
+
+
+{% extends 'content/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<h1> Update Book details </h1>
+
+<form name = "form"  
+         method = "POST" >{% csrf_token %}
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Book Number  </label>
+        <input type="number" name = "book_no" class="form-control" id="book_no" value ="{{Book_obj.book_no}}" 
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Book name</label>
+      <input type="name" name = "name" class="form-control" id="name" value ="{{Book_obj.name}}" 
+      </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Author Name </label>
+      <input type="name" name = "Author_name"class="form-control" id="Author_name" value ="{{Book_obj.Author_name}}" 
+    </div>
+    
+
+    <button <a type="submit" class="btn btn-primary">Update</a></button>
+  </form>
+
+
+
+
+
+
+
+
+ {% endblock %}
+
+ {% block javaScript %}
+ 
+ 
+ {% endblock %}
+
+
+ {% comment %} action = "{% url "books:update_book" id=Book_obj.id  %}"  {% endcomment %}
